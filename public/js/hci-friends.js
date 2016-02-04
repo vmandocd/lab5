@@ -5,6 +5,8 @@ $(document).ready(function() {
 	initializePage();
 })
 
+$("a.nameID").click(nameClick);
+
 /*
  * Function that is called when the document is ready.
  */
@@ -43,4 +45,13 @@ function anagrammedName(name) {
 		console.log(name + " not known for anagramming.");
 		return name;
 	}
+}
+
+function nameClick(e) {
+	e.preventDefault();
+
+	var nameGiven = $(this).text();
+	var newText = anagrammedName(nameGiven);
+
+	$($(this)).text(newText);
 }
